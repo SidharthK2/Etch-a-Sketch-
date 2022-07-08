@@ -15,5 +15,33 @@
     />
     <script src="app.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <div class="bound">
+      <div class="title">
+        <h1>Etch-a-Sketch</h1>
+      </div>
+      <div class="grid"></div>
+      <div class="bottom">
+        <div class="left">
+          <button class="btn color">Black-White</button>
+          <button class="btn color">Rainbow</button>
+        </div>
+        <div class="mid">
+          <input
+            type="range"
+            id="gridSize"
+            name="gridSize"
+            min="1"
+            max="4"
+            step="1"
+          />
+          <label for="gridSize">Grid Size</label>
+        </div>
+        <div class="right">
+          <button class="btn action">Erase</button>
+          <button class="btn action">Clear</button>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

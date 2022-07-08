@@ -86,9 +86,9 @@ label {
   height: 50px;
   margin: 0;
   padding: 0;
-  transition-duration: 0.4s;
+  transition-duration: 0.5s;
 }
 
-.grid div:hover {
-  background-color: #a2b38b;
+.bwColor {
+    background-color: #212d2c;
 }

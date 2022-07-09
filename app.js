@@ -13,6 +13,12 @@ const renderGrid = (size) => {
       const node = document.createElement("div");
       grid.appendChild(node);
     }
+  } else if (size == 3) {
+    for (const i of [...Array(50 * 50).keys()]) {
+      const node = document.createElement("div");
+      node.classList.add("size3");
+      grid.appendChild(node);
+    }
   }
 };
 
@@ -27,7 +33,7 @@ const colorSelect = (mode) => {
 };
 
 let colorFill = () => {
-    console.log("entered colorfill");
+  console.log("entered colorfill");
   if (colorMode == "bw") {
     grid.onmouseover = (e) => {
       e.target.classList.add("bwColor");
@@ -36,24 +42,20 @@ let colorFill = () => {
 };
 
 let mouseOverFun;
-const doNothing = () => {console.log("enter do nothing");};
+const doNothing = () => {
+  console.log("enter do nothing");
+};
 
 setGridBtn.addEventListener("click", onSetGrid);
 bwBtn.addEventListener("click", colorSelect.bind(this, "bw"));
 rbBtn.addEventListener("click", colorSelect.bind(this, "rb"));
-// grid.addEventListener("mousedown", (e) => {
-//   console.log(e.target);
-//   grid.addEventListener("mouseover", (e) => {
-//     console.log(e.target);
-//   });
-// });
 grid.onmousedown = () => {
-    colorFill();
+  colorFill();
   console.log("executed mouseoverfun");
 };
 grid.onmouseup = () => {
-    let divs = document.body.getElementsByTagName('div');
-    for (var i = 0; i < divs.length; i++) {
-        divs[i].onmouseover = function() {};
-    }
+  let divs = document.body.getElementsByTagName("div");
+  for (var i = 0; i < divs.length; i++) {
+    divs[i].onmouseover = function () {};
+  }
 };

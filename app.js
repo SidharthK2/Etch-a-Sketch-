@@ -7,10 +7,22 @@ const clearBtn = document.querySelector(".right").lastElementChild;
 let currGridSize = 3;
 let colorMode = "bw";
 
+const resetGrid = () => {
+  while (grid.hasChildNodes()) {
+    grid.removeChild(grid.firstChild);
+  }
+};
+
 const renderGrid = (size) => {
   if (size == 1) {
     for (const i of [...Array(10 * 10).keys()]) {
       const node = document.createElement("div");
+      grid.appendChild(node);
+    }
+  } else if (size == 2) {
+    for (const i of [...Array(25 * 25).keys()]) {
+      const node = document.createElement("div");
+      node.classList.add("size2");
       grid.appendChild(node);
     }
   } else if (size == 3) {
@@ -19,10 +31,17 @@ const renderGrid = (size) => {
       node.classList.add("size3");
       grid.appendChild(node);
     }
+  } else if (size == 4) {
+    for (const i of [...Array(100 * 100).keys()]) {
+      const node = document.createElement("div");
+      node.classList.add("size4");
+      grid.appendChild(node);
+    }
   }
 };
 
 const onSetGrid = () => {
+  resetGrid();
   currGridSize = document.querySelector("input").value;
   renderGrid(currGridSize);
 };
@@ -33,17 +52,34 @@ const colorSelect = (mode) => {
 };
 
 let colorFill = () => {
-  console.log("entered colorfill");
   if (colorMode == "bw") {
     grid.onmouseover = (e) => {
-      e.target.classList.add("bwColor");
+      if (e.target.id != "grid") {
+        e.target.style.backgroundColor = "#212d2c";
+      }
+    };
+  } else if (colorMode == "rb") {
+    grid.onmouseover = (e) => {
+      if (e.target.id != "grid") {
+        colorChoice = [
+          "violet",
+          "Indigo",
+          "aqua",
+          "GreenYellow",
+          "Yellow",
+          "red",
+        ];
+        e.target.style.backgroundColor =
+          colorChoice[Math.floor(Math.random() * colorChoice.length)];
+      }
     };
   }
 };
 
-let mouseOverFun;
-const doNothing = () => {
-  console.log("enter do nothing");
+const onClear = () => {
+  grid.childNodes.forEach((node) => {
+    node.style.backgroundColor = "white";
+  });
 };
 
 setGridBtn.addEventListener("click", onSetGrid);
@@ -51,7 +87,6 @@ bwBtn.addEventListener("click", colorSelect.bind(this, "bw"));
 rbBtn.addEventListener("click", colorSelect.bind(this, "rb"));
 grid.onmousedown = () => {
   colorFill();
-  console.log("executed mouseoverfun");
 };
 grid.onmouseup = () => {
   let divs = document.body.getElementsByTagName("div");
@@ -59,3 +94,4 @@ grid.onmouseup = () => {
     divs[i].onmouseover = function () {};
   }
 };
+clearBtn.addEventListener("click", onClear);

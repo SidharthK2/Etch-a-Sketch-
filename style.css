@@ -82,29 +82,45 @@ label {
 
 .grid div {
   box-sizing: border-box;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 50px;
   height: 50px;
   margin: 0;
   padding: 0;
-  transition-duration: 0.5s;
+  transition-duration: 0.35s;
 }
 
-.grid div:hover{
-  transform: scale(1.5);
-  box-shadow: 2px whitesmoke;
+.grid div:hover {
+  transform: scale(1.2);
+  box-shadow: 1px whitesmoke;
 }
 
-.bwColor {
-  background-color: #212d2c;
+.grid div.size2 {
+  box-sizing: border-box;
+  /* border: 1px solid black; */
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  transition-duration: 0.35s;
 }
 
 .grid div.size3 {
   box-sizing: border-box;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 10px;
   height: 10px;
   margin: 0;
   padding: 0;
-  transition-duration: 0.5s;
+  transition-duration: 0.35s;
+}
+
+.grid div.size4 {
+  box-sizing: border-box;
+  /* border: 1px solid black; */
+  width: 5px;
+  height: 5px;
+  margin: 0;
+  padding: 0;
+  transition-duration: 0.1;
 }

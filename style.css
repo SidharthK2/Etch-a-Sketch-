@@ -3,6 +3,12 @@ body {
   justify-content: center;
   background-color: #e6ba95;
 }
+
+h1 {
+  font-family: "Fruktur", cursive;
+  font-weight:normal;
+}
+
 .bound {
   font: 1rem "Fira Sans", sans-serif;
   display: flex;

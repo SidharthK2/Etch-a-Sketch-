@@ -14,24 +14,24 @@ const resetGrid = () => {
 };
 
 const renderGrid = (size) => {
-  if (size == 1) {
+  if (size == 4) {
     for (const i of [...Array(10 * 10).keys()]) {
       const node = document.createElement("div");
       grid.appendChild(node);
     }
-  } else if (size == 2) {
+  } else if (size == 3) {
     for (const i of [...Array(25 * 25).keys()]) {
       const node = document.createElement("div");
       node.classList.add("size2");
       grid.appendChild(node);
     }
-  } else if (size == 3) {
+  } else if (size == 2) {
     for (const i of [...Array(50 * 50).keys()]) {
       const node = document.createElement("div");
       node.classList.add("size3");
       grid.appendChild(node);
     }
-  } else if (size == 4) {
+  } else if (size == 1) {
     for (const i of [...Array(100 * 100).keys()]) {
       const node = document.createElement("div");
       node.classList.add("size4");
